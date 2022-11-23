@@ -1,6 +1,6 @@
 'use strict';
 const { Sequelize, DataTypes } = require('sequelize');
-
+const logger = require('./logger');
 require('dotenv').config();
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -21,9 +21,9 @@ const sequelize = new Sequelize(
 (async () => {
   try {
     await sequelize.authenticate();
-    console.log('Connection to Database has been established successfuly');
+    logger.log('Connection to Database has been established successfuly');
   } catch (error) {
-    console.error('Unable to connect to the database:', error);
+    logger.error('Unable to connect to the database:', error);
   }
 })();
 module.exports = { sequelize, DataTypes };
