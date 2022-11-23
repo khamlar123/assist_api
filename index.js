@@ -13,7 +13,7 @@ app.get('/', async (req, res) => {
 });
 
 const api = require('./controllers/index');
-app.use('/api', api);
+app.use('/', api);
 
 
 app.listen(port, () => {
