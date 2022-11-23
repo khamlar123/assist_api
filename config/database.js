@@ -1,21 +1,22 @@
 'use strict';
 const { Sequelize, DataTypes } = require('sequelize');
 
+require('dotenv').config();
 const sequelize = new Sequelize(
-    "sql12579385",  //database name
-    "sql12579385", // user name 
-    "5x53BsBwim", // password
-    {
-        host: "sql12.freemysqlhosting.net",
-        dialect: 'mysql',
-        operatorsAliases: 0,
-        logging: true,
-        dialectOptions: {
-        options: {
-            encrypt: false,
-        },
-        },
-    }
+  process.env.DB_NAME,
+  process.env.DB_USERNAME,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    dialect: 'mysql',
+    operatorsAliases: 0,
+    logging: true,
+    dialectOptions: {
+      options: {
+        encrypt: false,
+      },
+    },
+  }
 );
 (async () => {
   try {
